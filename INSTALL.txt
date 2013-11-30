@@ -10,4 +10,4 @@ To instal RecAbs you need to agree to the terms of the License included
 in file LICENSE.txt.
 
 To compile RecAbs you will need:
-    - FuD : download latest version from : https://code.google.com/p/recabs/
+    - FuD : download latest version from : https://code.google.com/p/fud/
