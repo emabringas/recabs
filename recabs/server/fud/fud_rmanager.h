@@ -41,9 +41,9 @@
 #ifndef FUD_MANAGER_H
 #define FUD_MANAGER_H
 
-#include <fud/fud.h>
-#include "l4_server_app.h"
-#include "recursion_manager.h"
+#include <fud/common/fud.h>
+#include "recabs/server/l4_server_app.h"
+#include "recabs/server/recursion_manager.h"
 
 namespace recabs
 {

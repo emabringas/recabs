@@ -41,7 +41,7 @@
 #include <syslog.h>
 #include <algorithm>
 #include <mili/mili.h>
-#include "distributable_recursive_processor.h"
+#include "recabs/client/distributable_recursive_processor.h"
 
 using namespace recabs;
 using recabs::uint;

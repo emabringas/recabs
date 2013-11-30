@@ -38,8 +38,8 @@
  *
  */
 
-#include "fud_rprocessor.h"
-#include "common.h"
+#include "recabs/common/common.h"
+#include "recabs/client/fud/fud_rprocessor.h"
 
 using namespace recabs;
 

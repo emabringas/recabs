@@ -40,9 +40,8 @@
 
 #include <mili/mili.h>
 #include <syslog.h>
-#include "common.h"
-#include "recursion_manager.h"
-
+#include "recabs/common/common.h"
+#include "recabs/server/recursion_manager.h"
 
 using namespace recabs;
 

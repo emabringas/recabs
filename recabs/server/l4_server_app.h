@@ -41,7 +41,7 @@
 #ifndef L4_SERVER_APP_H
 #define L4_SERVER_APP_H
 
-#include "common.h"
+#include "recabs/common/common.h"
 
 
 namespace recabs

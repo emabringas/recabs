@@ -41,7 +41,7 @@
 #ifndef RECURSIVE_PROCESSOR_H
 #define RECURSIVE_PROCESSOR_H
 
-#include "common.h"
+#include "recabs/common/common.h"
 
 namespace recabs
 {

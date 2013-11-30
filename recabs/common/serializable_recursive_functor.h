@@ -42,7 +42,7 @@
 #define SERIALIZABLE_RECURSIVE_FUNCTOR_H
 
 #include "common.h"
-#include "recursive_functor.h"
+#include "recabs/common/recursive_functor.h"
 
 namespace recabs
 {

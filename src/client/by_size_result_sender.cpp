@@ -38,8 +38,8 @@
  *
  */
 
-#include "by_size_result_sender.h"
 #include <assert.h>
+#include "recabs/client/by_size_result_sender.h"
 
 using namespace recabs;
 

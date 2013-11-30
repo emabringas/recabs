@@ -62,9 +62,9 @@ void PrototypeRP::dispatch_work(const Packet& packet)
 
 }
 
-void PrototypeRP::collaborators(uint n)
+uint PrototypeRP::collaborators(uint n)
 {
-
+    return n;
 }
 
 void PrototypeRP::receive_packet(const Packet& packet)
