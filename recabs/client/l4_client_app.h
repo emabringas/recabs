@@ -41,8 +41,8 @@
 #ifndef L4_CLIENT_APP_H
 #define L4_CLIENT_APP_H
 
-#include "result_sender.h"
-#include "by_size_result_sender.h"
+#include "recabs/client/result_sender.h"
+#include "recabs/client/by_size_result_sender.h"
 
 namespace recabs
 {

@@ -41,7 +41,7 @@
 #ifndef RESULT_SENDER_H
 #define RESULT_SENDER_H
 
-#include "common.h"
+#include "recabs/common/common.h"
 
 namespace recabs
 {

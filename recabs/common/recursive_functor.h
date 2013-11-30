@@ -42,7 +42,7 @@
 #define RECURSIVE_FUNCTOR_H
 
 #include <list>
-#include "common.h"
+#include "recabs/common/common.h"
 
 namespace recabs
 {

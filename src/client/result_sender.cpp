@@ -36,7 +36,7 @@
  * Boston, MA  02110-1301  USA
  */
 
-#include "result_sender.h"
+#include "recabs/client/result_sender.h"
 
 using namespace recabs;
 

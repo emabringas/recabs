@@ -41,7 +41,7 @@
 #ifndef FUD_RESULT_SENDER_H
 #define FUD_RESULT_SENDER_H
 
-#include "result_sender.h"
+#include "recabs/client/result_sender.h"
 
 namespace recabs
 {

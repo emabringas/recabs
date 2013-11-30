@@ -39,7 +39,7 @@
 #ifndef COMMUNICATION_H
 #define COMMUNICATION_H
 
-#include "common.h"
+#include "recabs/common/common.h"
 
 namespace recabs
 {

@@ -38,7 +38,7 @@
  *
  */
 
-#include "prototype_rm.h"
+#include "recabs/server/prototype/prototype_rm.h"
 
 using namespace recabs;
 

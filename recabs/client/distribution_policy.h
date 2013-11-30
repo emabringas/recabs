@@ -41,7 +41,7 @@
 #ifndef DISTRIBUTION_POLICY_H
 #define DISTRIBUTION_POLICY_H
 
-#include "common.h"
+#include "recabs/common/common.h"
 
 namespace recabs
 {

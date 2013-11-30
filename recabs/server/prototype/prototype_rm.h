@@ -1,10 +1,10 @@
-/* $Id: prototype_rp.h 358 2010-11-09 20:47:54Z emab73 $ */
+/* $Id: prototype_rm.h 356 2010-11-04 13:38:16Z emab73 $ */
 
 /** 
- *  @file:      prototype_rp.h
- *  @details    Header file for Recabs providing PrototypeRP class.
- *              System:     RecAbs              \n
- *              Language:   C++                 \n
+ *  @file:      prototype_rm.h
+ *  @details    Header file for PrototypeRecursionManager class.\n
+ *              System: RecAbs\n
+ *              Language: C++\n
  *  
  *  @author     Mariano Bessone
  *  @email      marjobe AT gmail.com
@@ -38,38 +38,39 @@
  *
  */
 
-#ifndef PROTOTYPE_RP_H
-#define PROTOTYPE_RP_H
+#ifndef PROTOTYPE_RM_H
+#define PROTOTYPE_RM_H
 
-#include "common.h"
-#include "distributable_recursive_processor.h"
-#include "deserializer_functor.h"
-
+#include <stack>
+#include "recabs/common/common.h"
+#include "recabs/server/recursion_manager.h"
+#include "recabs/server/l4_server_app.h"
+#include "recabs/client/deserializer_functor.h"
+#include "recabs/client/prototype/prototype_rp.h"
 
 namespace recabs
 {
-    /* Forward declaration. */
-    class PrototypeRM;
-
     /**
-     *  Class that represents a concrete node of execution. It's implemented locally.
+     * Class that represents a concrete manager of recursion. It's implemented locally.
      */
-    class PrototypeRP : public DistributableRecursiveProcessor
+    class PrototypeRM : public RecursionManager
     {
         public:
 
             /**
-             *  Constructor.
+             * Constructor.
              */
-            PrototypeRP(L4ClientApp& app, const DeserializerFunctor& df, RecursionManager& rm);
+            PrototypeRM(L4ServerApp& srv_app, L4ClientApp& clt_app, const DeserializerFunctor& deserializer);
 
             /**
-             *  Destructor.
+             * Destructor.
              */
-            virtual ~PrototypeRP();
+            virtual ~PrototypeRM();
 
             /**
-             *  Should be implemented as a way to start the exectution of a single node.
+             * Starts the recursion.
+             *
+             * @param server_app : concrete L4ServerApp to set.
              */
             virtual void start();
 
@@ -80,33 +81,22 @@ namespace recabs
              */
             virtual void send_packet(const Packet& packet);
 
-            /**
-             * Receive a packet.
+           /**
+             * Sends a packet.
              *
              * @param packet : packet to send.
-             */
+             */    
             virtual void receive_packet(const Packet& packet);
-    
-        protected:
-
-            /**
-             *  Should be implemented the way to delegate work to server.
-             *  @param p : Packet with work for the other clients.
-             */
-            virtual void dispatch_work(const Packet& packet);
-
-            /**
-             *  Should be implemented th way to request help to server.
-             *  @param n: Number of helpers needed.
-             */ 
-            virtual void collaborators(uint n);
 
         private:
 
-            /* Recursion manager asociated. */
-//            RecursionManager& _manager;
+            /* Unique client. This prototype support only one client as
+             * a node of execution.
+             */
+            PrototypeRP _worker;
             
     };
+
 }
 
 #endif

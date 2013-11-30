@@ -38,9 +38,9 @@
  *
  */
 
-#include "distribution_policy.h"
 #include <cmath>
 #include <assert.h>
+#include "recabs/client/distribution_policy.h"
 
 using namespace recabs;
 using recabs::uint;

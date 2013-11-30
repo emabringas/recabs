@@ -41,9 +41,9 @@
 #ifndef BY_SIZE_RESULT_SENDER_H
 #define BY_SIZE_RESULT_SENDER_H
 
-#include "common.h"
-#include "result_sender.h"
 #include <list>
+#include "recabs/common/common.h"
+#include "recabs/client/result_sender.h"
 
 namespace recabs
 {

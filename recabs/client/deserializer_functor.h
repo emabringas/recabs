@@ -41,8 +41,8 @@
 #ifndef DESERIALIZER_FUNCTOR_H
 #define DESERIALIZER_FUNCTOR_H
 
-#include "common.h"
-#include "serializable_recursive_functor.h"
+#include "recabs/common/common.h"
+#include "recabs/common/serializable_recursive_functor.h"
 
 namespace recabs
 {

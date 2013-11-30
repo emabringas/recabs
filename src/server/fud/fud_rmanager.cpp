@@ -38,7 +38,7 @@
  *
  */
 
-#include "fud_rmanager.h"
+#include "recabs/server/fud/fud_rmanager.h"
 
 using namespace recabs;
 

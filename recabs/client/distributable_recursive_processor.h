@@ -41,12 +41,12 @@
 #ifndef DISTRIBUTABLE_RECURSIVE_PROCESSOR_H
 #define DISTRIBUTABLE_RECURSIVE_PROCESSOR_H
 
-#include "common.h"
-#include "recursive_processor.h"
-#include "deserializer_functor.h"
-#include "result_sender.h"
-#include "l4_client_app.h"
-#include "distribution_policy.h"
+#include "recabs/common/common.h"
+#include "recabs/client/recursive_processor.h"
+#include "recabs/client/deserializer_functor.h"
+#include "recabs/client/result_sender.h"
+#include "recabs/client/l4_client_app.h"
+#include "recabs/client/distribution_policy.h"
 
 namespace recabs
 {
