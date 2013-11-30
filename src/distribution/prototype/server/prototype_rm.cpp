@@ -19,7 +19,7 @@
  *
  * RecAbs: Recursive Abstraction, an abstraction layer to any recursive
  * processes without data dependency for framework FuD.
- * <http://fud.googlecode.com/>
+ * <https://code.google.com/p/recabs/>
  *
  * Copyright (C) 2010 - Mariano Bessone and Emanuel Bringas
  *
