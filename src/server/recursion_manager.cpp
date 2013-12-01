@@ -62,7 +62,7 @@ void RecursionManager::handle_receive_packet(InputMessage& input)
     PacketContainer::iterator it;
 
     input >> header >> packet_container;
-    switch(header)
+    switch (header)
     {
         case kRes:
             /* For each result, inform to L4 App */
@@ -70,7 +70,7 @@ void RecursionManager::handle_receive_packet(InputMessage& input)
                 _server_app.receive_result(*it);
             break;
 
-        case kJob: 
+        case kJob:
             /* For each job, it is pushed into the stack */
             for (it = packet_container.begin(); it != packet_container.end(); it++)
                 push_child(*it);
@@ -83,7 +83,7 @@ void RecursionManager::handle_receive_packet(InputMessage& input)
             break;
 
         default:
-            syslog(LOG_NOTICE, "RecAbs: Error receiving message, header does not exist.");      
+            syslog(LOG_NOTICE, "RecAbs: Error receiving message, header does not exist.");
             break;
     }
 }

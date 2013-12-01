@@ -50,7 +50,7 @@ int main()
     rm->start();
     /* Inform result. */
     bs.results_report();
-    
+
     /* Clean up */
     delete rm;
 
