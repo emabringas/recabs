@@ -1,8 +1,8 @@
-/* $Id: main_prototype.cpp 567 2011-06-07 20:06:32Z marjobe $ */
+/* $Id: l4_client_bs.cpp 607 2011-08-04 03:47:06Z marjobe $ */
 
 /**
- *  @file:      main_prototype.h
- *  @details    Implementation file for Recabs providing app class MainPrototype.
+ *  @file:      l4_client_bs.cpp
+ *  @details    Implementation file for L4ClientApp class.
  *              System: RecAbs\n
  *              Language: C++\n
  *
@@ -12,7 +12,7 @@
  *  @author     Emanuel Bringas
  *  @email      emab73 AT gmail.com
  *
- *  @date       August 2010
+ *  @date       October 2010
  *  @version    0.1
  *
  * RecAbs: Recursive Abstraction, an abstraction layer to any recursive
@@ -38,24 +38,10 @@
  *
  */
 
-//#include <recabs/recabs.h>
-#include "recabs_dev.h"
-#include "l4_server_bs.h"
-#include "l4_client_bs.h"
-#include "bs_deserializer.h"
+#include "binary-search/client/l4_client_bs.h"
 
-int main(int argc, char const* argv[])
+recabs::MessageSender* L4ClientBS::createMessageSender(recabs::RecabsPacketHeader header) const
 {
-    L4ServerBS bs_srv;
-    L4ClientBS bs_clt;
-    const BSDeserializer bs_deserializer;
-
-    recabs::RecursionManager* manager = recabs::RecursionManager::create_recursion_manager(bs_srv, bs_clt, bs_deserializer);
-
-    manager->start();
-    /* Inform result. */
-    bs_srv.results_report();
-
-    return 0;
+    return new recabs::BySizeResultSender(new recabs::InmediatelySender(header), 1000);
 }
 

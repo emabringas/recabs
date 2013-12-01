@@ -1,11 +1,11 @@
-/* $Id: main_fud_server.cpp 571 2011-06-13 14:43:46Z marjobe $ */
+/* $Id: l4_client_bs.h 589 2011-07-14 18:25:31Z marjobe $ */
 
-/**
- *  @file:      main_fud_server.h
- *  @details    Implementation file for Recabs providing app class MainFudServer.
+/** 
+ *  @file:      l4_client_bs.h
+ *  @details    Header file for Recabs providing L4ClientBS class.
  *              System: RecAbs\n
  *              Language: C++\n
- *
+ *  
  *  @author     Mariano Bessone
  *  @email      marjobe AT gmail.com
  *
@@ -38,21 +38,14 @@
  *
  */
 
-#include "recabs.h"
-#include "l4_server_bs.h"
+#include <recabs/recabs.h>
 
-int main()
+/**
+ * Class that implements the interface L4ServerApp, therefore is an assistant
+ * to the start of a BinarySearch and manager of the results.
+ */
+class L4ClientBS : public recabs::L4ClientApp
 {
-    L4ServerBS bs;
+    virtual recabs::MessageSender* createMessageSender(recabs::RecabsPacketHeader header) const;
+};
 
-    recabs::RecursionManager* rm = recabs::create_recursion_manager(bs);
-
-    rm->start();
-    /* Inform result. */
-    bs.results_report();
-    
-    /* Clean up */
-    delete rm;
-
-    return 0;
-}

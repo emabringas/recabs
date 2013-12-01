@@ -1,18 +1,18 @@
-/* $Id: l4_client_bs.cpp 607 2011-08-04 03:47:06Z marjobe $ */
+/* $Id: bs_deserializer.h 567 2011-06-07 20:06:32Z marjobe $ */
 
-/**
- *  @file:      l4_client_bs.cpp
- *  @details    Implementation file for L4ClientApp class.
+/** 
+ *  @file:      bs_deserializer.h
+ *  @details    Header file for Recabs providing BSDeserializer class.
  *              System: RecAbs\n
  *              Language: C++\n
- *
+ *  
  *  @author     Mariano Bessone
  *  @email      marjobe AT gmail.com
  *
  *  @author     Emanuel Bringas
  *  @email      emab73 AT gmail.com
  *
- *  @date       October 2010
+ *  @date       August 2010
  *  @version    0.1
  *
  * RecAbs: Recursive Abstraction, an abstraction layer to any recursive
@@ -38,11 +38,31 @@
  *
  */
 
-#include "l4_client_bs.h"
-#include "by_size_result_sender.h"
+#ifndef BS_DESERIALIZER_H
+#define BS_DESERIALIZER_H
 
-recabs::MessageSender* L4ClientBS::createMessageSender(recabs::RecabsPacketHeader header) const
+#include <recabs/recabs.h>
+
+/**
+ *  Concrete class to deserialize BinarySearchs.
+ */
+class BSDeserializer : public recabs::DeserializerFunctor
 {
-    return new recabs::BySizeResultSender(new recabs::InmediatelySender(header), 1000);
-}
+    public:
+    
+        /**
+         *  Constructor method.
+         */
+        BSDeserializer(){};
+
+        /**
+         *  Extract functor from the given packet.
+         *  @param pkt : the packet containing the serialized BinarySearch.
+         *  @param rf : the BinarySearch as a result of deserialization.
+         */
+        virtual void deserialize(const recabs::Packet& pkt, recabs::SerializableRecursiveFunctor** rf) const;
+
+};
+
+#endif
 

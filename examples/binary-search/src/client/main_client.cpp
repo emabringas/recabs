@@ -1,11 +1,11 @@
-/* $Id: bs_deserializer.h 567 2011-06-07 20:06:32Z marjobe $ */
+/* $Id: main_fud_client.cpp 571 2011-06-13 14:43:46Z marjobe $ */
 
-/** 
- *  @file:      bs_deserializer.h
- *  @details    Header file for Recabs providing BSDeserializer class.
+/**
+ *  @file:      main_client.h
+ *  @details    Implementation file for Recabs providing app class MainFudClient.
  *              System: RecAbs\n
  *              Language: C++\n
- *  
+ *
  *  @author     Mariano Bessone
  *  @email      marjobe AT gmail.com
  *
@@ -38,31 +38,31 @@
  *
  */
 
-#ifndef BS_DESERIALIZER_H
-#define BS_DESERIALIZER_H
+#include <getoptpp/getopt_pp.h>
+#include <recabs/recabs.h>
+#include "binary-search/client/bs_deserializer.h"
+#include "binary-search/client/l4_client_bs.h"
 
-#include "recabs.h"
+using namespace GetOpt;
 
-/**
- *  Concrete class to deserialize BinarySearchs.
- */
-class BSDeserializer : public recabs::DeserializerFunctor
+int main(int argc, char** argv)
 {
-    public:
+    size_t      port(31337);
+    std::string address("127.0.0.1");
+
+    GetOpt_pp ops(argc, argv);
+    ops >> Option('a', "address", address) >> Option('p', "port", port) ;
+
+    BSDeserializer bsd;
+    L4ClientBS bsapp;
+    recabs::FixedLeafsDistributablePolicy dp(1000000);
+
+    recabs::DistributableRecursiveProcessor* rp = recabs::create_recursion_processor(bsapp, bsd, dp);
+
+    rp->run(address, port);
     
-        /**
-         *  Constructor method.
-         */
-        BSDeserializer(){};
+    /* Clean up */
+    delete rp;
 
-        /**
-         *  Extract functor from the given packet.
-         *  @param pkt : the packet containing the serialized BinarySearch.
-         *  @param rf : the BinarySearch as a result of deserialization.
-         */
-        virtual void deserialize(const recabs::Packet& pkt, recabs::SerializableRecursiveFunctor** rf) const;
-
-};
-
-#endif
-
+    return 0;
+}

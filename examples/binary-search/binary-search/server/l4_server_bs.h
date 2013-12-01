@@ -41,7 +41,7 @@
 #ifndef L4_SERVER_BS_H
 #define L4_SERVER_BS_H
 
-#include "recabs.h"
+#include <recabs/recabs.h>
 
 /**
  * Class that implements the interface L4ServerApp, therefore is an assistant

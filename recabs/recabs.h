@@ -42,19 +42,19 @@
 #define RECABS_H
 
 /** Common side */
-#include "serializable_recursive_functor.h"
-#include "common.h"
-#include "l4_client_app.h"
-//#include "by_size_result_sender.h"
+#include "recabs/common/serializable_recursive_functor.h"
+#include "recabs/common/common.h"
 
 /** Client side */
-#include "deserializer_functor.h"
-#include "distributable_recursive_processor.h"
+#include "recabs/client/l4_client_app.h"
+#include "recabs/client/deserializer_functor.h"
+#include "recabs/client/distributable_recursive_processor.h"
+#include "recabs/client/by_size_result_sender.h"
 //#include "distribution_policy.h"
 
 /** Server side */
-#include "l4_server_app.h"
-#include "recursion_manager.h"
+#include "recabs/server/l4_server_app.h"
+#include "recabs/server/recursion_manager.h"
 
 #endif
 

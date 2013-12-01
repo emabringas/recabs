@@ -1,16 +1,16 @@
 Import ('env')
 
+# Implementation options
+implementations = ['fud', 'prototype']
 # Concrete implementation for RecAbs
 AddOption(
     '--implementation',
     dest='implementation',
     action='store',
     type='string',
-    default="fud",
+    default=implementations[0],
     help='Specifies the underlying implementation for RecAbs. Default is FuD.'
 )
-# Implementation options
-implementations = ['fud', 'prototype']
 
 # Check if implementation option is OK
 if not env.GetOption('implementation') in implementations:
@@ -53,3 +53,7 @@ ext_inc = []
 src = env.Glob('src/server/*.cpp')
 deps = ['mili', 'recabs_server_' + env.GetOption('implementation')]
 env.CreateSharedLibrary('recabs_server', inc, ext_inc, src, deps)
+
+inc = env.Dir('.')
+deps = []
+env.CreateHeaderOnlyLibrary('recabs_headers', inc, deps)
