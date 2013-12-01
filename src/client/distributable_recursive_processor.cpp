@@ -96,7 +96,7 @@ void DistributableRecursiveProcessor::do_recursion(ChildrenFunctors& functor_lis
     size_t reproduce_count(0);
 
     /* Reproduces all the funtors. */
-    while ( !functor_list.empty() )
+    while (!functor_list.empty())
     {
         /* Take the last functor (the weight minor node) and then remove it from list. */
         RecursiveFunctor* rf = functor_list.back();
@@ -129,7 +129,7 @@ void DistributableRecursiveProcessor::reproduce(RecursiveFunctor* rf, ChildrenFu
     /* Does the message packet has something ? */
     if (!message.empty())
     {
-        if ( children.empty() )
+        if (children.empty())
         {
             /* In this case, the message is a leaf of the recursion tree, then is a result. */
             send_result(message, when);
@@ -144,14 +144,14 @@ void DistributableRecursiveProcessor::reproduce(RecursiveFunctor* rf, ChildrenFu
     }
 
     /* Add (at the end) new children resulting from functor's call to the list of all functors. */
-    if ( !children.empty() )
+    if (!children.empty())
         functor_list.splice(functor_list.end(), children);
 }
 
 void DistributableRecursiveProcessor::dispatch_children(ChildrenFunctors& children)
 {
-    const uint orders = children.size()-1;
-    if ( orders > 0 )
+    const uint orders = children.size() - 1;
+    if (orders > 0)
     {
         const uint free_collaborators = collaborators(orders);
         if (free_collaborators > 0)
@@ -161,7 +161,7 @@ void DistributableRecursiveProcessor::dispatch_children(ChildrenFunctors& childr
 
             ChildrenFunctors functors_to_dispatch(children.begin(), it);
             dispatch_work(functors_to_dispatch);
-            
+
             /* Deletes the functors which has been sent to the server. */
             for (ChildrenFunctors::iterator itr = children.begin(); itr != it; itr++)
                 delete *itr;

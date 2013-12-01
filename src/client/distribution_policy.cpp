@@ -50,7 +50,7 @@ uint DistributeAlwaysAllPolicy::how_much_distribute(uint n_children, uint) const
     if (n_children == 0)
         return 0;
     else
-        return n_children-1;
+        return n_children - 1;
 }
 
 uint DistributeRandomPolicy::how_much_distribute(uint n_children, uint) const
@@ -59,8 +59,8 @@ uint DistributeRandomPolicy::how_much_distribute(uint n_children, uint) const
         return 0;
     else
     {
-        mili::Randomizer<uint> rnd(0, n_children-1);
-        return rnd.get();        
+        mili::Randomizer<uint> rnd(0, n_children - 1);
+        return rnd.get();
     }
 }
 
@@ -80,8 +80,8 @@ uint Sigmoid::how_much_distribute(uint n_children, uint depth) const
     else
     {
         /* fooplot: [hijos]-1/(1+e^(-log([hijos], [leafs])*[request_index] + x)) ) */
-        const float sunset_depth = ( log10(_leafs) / log10(n_children) ) * _request_index;
-        const uint value = (uint) roundf( (n_children - 1) / (1 + exp(-sunset_depth + depth - (n_children - 1))) );
+        const float sunset_depth = (log10(_leafs) / log10(n_children)) * _request_index;
+        const uint value = (uint) roundf((n_children - 1) / (1 + exp(-sunset_depth + depth - (n_children - 1))));
         assert(value < n_children);
         return value;
     }

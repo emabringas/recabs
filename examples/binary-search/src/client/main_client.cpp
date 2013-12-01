@@ -60,7 +60,7 @@ int main(int argc, char** argv)
     recabs::DistributableRecursiveProcessor* rp = recabs::create_recursion_processor(bsapp, bsd, dp);
 
     rp->run(address, port);
-    
+
     /* Clean up */
     delete rp;
 
