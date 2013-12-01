@@ -38,11 +38,10 @@
  *
  */
 
-#include <mili/mili.h>
-#include "binary_search.h"
-#include "bs_deserializer.h"
-
 #include <iostream>
+#include <mili/mili.h>
+#include "binary-search/common/binary_search.h"
+#include "binary-search/client/bs_deserializer.h"
 
 void BSDeserializer::deserialize(const recabs::Packet& pkt, recabs::SerializableRecursiveFunctor** rf) const
 {

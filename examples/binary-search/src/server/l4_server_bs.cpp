@@ -38,11 +38,10 @@
  *
  */
 
-
-#include <mili/mili.h>
-#include "l4_server_bs.h"
-#include "binary_search.h"
 #include <string>
+#include <mili/mili.h>
+#include "binary-search/server/l4_server_bs.h"
+#include "binary-search/common/binary_search.h"
 
 L4ServerBS::L4ServerBS()
 {

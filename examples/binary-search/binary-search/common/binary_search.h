@@ -41,10 +41,8 @@
 #ifndef BINARY_SEARCH_H
 #define BINARY_SEARCH_H
 
-
 #include <list>
-#include "recabs.h"
-
+#include <recabs/recabs.h>
 
 /** 
  * Class that represent the Binary Search recursive process.

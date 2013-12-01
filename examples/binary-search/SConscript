@@ -1,0 +1,19 @@
+Import ('env')
+
+# Object: common object
+inc = env.Dir('.')
+src = env.Glob('src/common/*.cpp')
+deps = ['recabs_headers']
+env.CreateObject('bs_common', inc, src, deps)
+
+# Program: BinarySearch client
+inc = env.Dir('.')
+src = env.Glob('src/client/*.cpp')
+deps = ['getoptpp', 'recabs_client', 'bs_common']
+env.CreateProgram('bs_client', inc, src, deps)
+
+# Program: BinarySearch server
+inc = env.Dir('.')
+src = env.Glob('src/server/*.cpp')
+deps = ['recabs_server', 'bs_common']
+env.CreateProgram('bs_server', inc, src, deps)

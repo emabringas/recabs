@@ -40,7 +40,7 @@
 
 #include <iostream>
 #include <mili/mili.h>
-#include "binary_search.h"
+#include "binary-search/common/binary_search.h"
 
 BinarySearch::BinarySearch(Elements& v, uint32_t s) :
     _v(v),
