@@ -4,7 +4,7 @@ Import ('env')
 implementations = ['fud', 'prototype']
 # Concrete implementation for RecAbs
 AddOption(
-    '--implementation',
+    '--layer2-implementation',
     dest='implementation',
     action='store',
     type='string',

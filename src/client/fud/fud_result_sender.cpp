@@ -38,7 +38,7 @@
  *
  */
 
-#include <fud/common/fud_client.h>
+#include <fud/fud_client.h>
 #include "recabs/client/fud/fud_result_sender.h"
 
 using namespace recabs;
